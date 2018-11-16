@@ -10,6 +10,7 @@ namespace Midterm2
     {
         static void Main(string[] args)
         {
+            //Hello world!
         }
     }
 }
