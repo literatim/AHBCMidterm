@@ -10,7 +10,9 @@ namespace Midterm2
     {
         static void Main(string[] args)
         {
-            //Hello world!
+            Console.WriteLine("Welcome to the Oracle Java Shop! (written in C#)");
+
+
         }
     }
 }
