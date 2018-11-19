@@ -8,5 +8,14 @@ namespace Midterm2
 {
     class Menu
     {
+        public void PrintMenu(List<Product> menu)
+        {
+            var number = 1;
+            foreach (var Product in menu)
+            {
+                Console.WriteLine($"{number}. {Product.Name} /n{Product.Category} /n{Product.Description} /n{Product.Price}.");
+                number++;
+            }
+        }
     }
 }
