@@ -13,16 +13,35 @@ namespace Midterm2
         public string Category { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
+        public static List<Product> menu = new List<Product>();
 
+        public Product(string _name, string _category, string _description, double _price)
+        {
+            Name = _name;
+            Category = _category;
+            Description = _description;
+            Price = _price;
+        }
 
 
         public static void GetInventoryList()
         {
+            string line;
+            int index = 1;
+
             using (StreamReader file =
                 new StreamReader(@"C:\dev\GrandCircus\Midterm2\inventory.txt"))
             {
+                while ((line = file.ReadLine()) != null)
+                {
+                    string[] elements = line.Split(',');
+                    menu.Add(new Product(elements[0], elements[1], elements[2], double.Parse(elements[3])));
+                    index++;
+                }
                 //Console.WriteLine(file.ReadToEnd());
             }
+
+
         }
     }
 }
