@@ -13,7 +13,7 @@ namespace Midterm2
         public string Category { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
-        public static List<Product> menu = new List<Product>();
+       
 
         public Product(string _name, string _category, string _description, double _price)
         {
@@ -24,10 +24,11 @@ namespace Midterm2
         }
 
 
-        public static void GetInventoryList()
+        public static List<Product> GetInventoryList()
         {
             string line;
             int index = 1;
+            List<Product> menu = new List<Product>();
 
             using (StreamReader file =
                 new StreamReader(@"C:\dev\GrandCircus\Midterm2\inventory.txt"))
@@ -41,7 +42,7 @@ namespace Midterm2
                 //Console.WriteLine(file.ReadToEnd());
             }
 
-
+            return menu;
         }
     }
 }

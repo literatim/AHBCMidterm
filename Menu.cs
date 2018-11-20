@@ -8,7 +8,7 @@ namespace Midterm2
 {
     class Menu
     {
-        public void PrintMenu(List<Product> menu)
+        public static void PrintMenu(List<Product> menu)
         {
             var number = 1;
             foreach (var Product in menu)
