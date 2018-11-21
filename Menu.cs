@@ -8,6 +8,17 @@ namespace Midterm2
 {
     class Menu
     {
+        private string _item { get; set; }
+        private double _multipliedPrice { get; set; }
+        public double _multiplier { get; set; }
+
+        public Menu(string Item, double MultipliedPrice, double Multiplier)
+        {
+            _item = Item;
+            _multiplier = Multiplier;
+            _multipliedPrice = MultipliedPrice;
+        }
+
         public static void PrintMenu(List<Product> menu)
         {
             var number = 1;
@@ -18,9 +29,9 @@ namespace Midterm2
             }
         }
 
-        public double BuildCustomerOrder(List<Product> menu)
+        public List<Menu> BuildCustomerOrder(List<Product> menu)
         {
-            List<double> menuSelections = new List<double>();
+            List<Menu> menuSelections = new List<Menu>();
             var doAgain = true;
             Console.Write("Please choose your item(s) by number: ");
             while (doAgain)
@@ -32,9 +43,8 @@ namespace Midterm2
                 var multiplier = Console.ReadLine();
 
                 var multipliedFoodItemPrice = foodItemPrice * multiplier;
-                menuSelections.Add(multipliedFoodItemPrice);
 
-                Console.WriteLine($"The line total for this selection: ${item}");
+                menuSelections.Add(new Menu(menu[selection].Name, multipliedFoodItemPrice, multiplier));
 
                 Console.Write("Would you like to add another item? Yes or No: ");
                 var repeat = Console.ReadLine();
@@ -50,13 +60,21 @@ namespace Midterm2
                 }
             }
 
-            Console.WriteLine("Here is your total for each selection: ");
-            foreach (var item in menuSelections)
+            return menuSelections;
+        }
+
+        public double CalculateLineTotals(List<Menu> menuSelections)
+        {
+            double menuSum = 0;
+
+            Console.WriteLine("Here is your order:");
+            foreach (var Menu in menuSelections)
             {
-                Console.WriteLine($"Line total for this selection: ${item}");
+                Console.WriteLine($"Line total for {Menu._item}(x{Menu._multiplier}): ${Menu._multipliedPrice}");
+
+                menuSum += Menu._multipliedPrice;
             }
 
-            double menuSum = menuSelections.Sum;
             return menuSum;
         }
     }
