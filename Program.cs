@@ -11,8 +11,6 @@ namespace Midterm2
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Oracle Java Shop! (written in C#)");
-
-
         }
     }
 }
