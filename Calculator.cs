@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Midterm2
 {
     class Calculator
+
     {         
             private const double salesTax = 0.06d;
             //total without sales tax
@@ -39,3 +40,38 @@ namespace Midterm2
 
     }
 
+//=======
+//    {
+
+//        private static double _taxRatePercent = .06;
+
+//        //Console.Writeline("Input price of itme : ")
+
+
+//        public double CalculateTax(string inputItemPrice, string inputTaxRate, string inputTotalPrice)
+//        {
+
+//            itemPrice = double.Parse(inputItemPrice);
+//            _taxRatePercent = double.Parse(inputTaxRate) / 100;
+//            totalPrice = double.Parse(inputTotalPrice);
+//            return totalPrice;
+//        }
+
+//        public void CalclulateSubTotal()
+//        {
+//            itemPrice += (itemPrice * _taxRatePercent);
+//        }
+
+//        public void GetTotalPrice()
+//        {
+//            totalPrice = _taxRatePercent + itemPrice;
+//        }
+//        public void GetTotalMessage()
+//        {
+//            Console.WriteLine("The item price is {0:C} and the total price is {1:C} at the tax rate of {2:p0}", itemPrice, totalPrice, _taxRatePercent);
+//        }
+//    }
+//}
+    
+
+    
