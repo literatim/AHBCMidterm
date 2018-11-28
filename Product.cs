@@ -26,23 +26,46 @@ namespace Midterm2
 
         public static List<Product> GetInventoryList()
         {
-            string line;
-            int index = 1;
-            List<Product> menu = new List<Product>();
+            //string line;
+           //int index = 1;
 
-            using (StreamReader file =
-                new StreamReader(@"C:\dev\GrandCircus\Midterm2\inventory.txt"))
+            List<Product> menuChoices = new List<Product>();
+            using (StreamReader sr = new StreamReader(@"C:\dev\GrandCircus\Midterm2\inventory.txt"))
             {
-                while ((line = file.ReadLine()) != null)
+                while (sr.Peek() >= 0)
                 {
-                    string[] elements = line.Split(',');
-                    menu.Add(new Product(elements[0], elements[1], elements[2], double.Parse(elements[3])));
-                    index++;
+                    string str;
+                    string[] strArray;
+                    str = sr.ReadLine();
+
+                    strArray = str.Split(',');
+                    Product Menu = new Product
+                    {
+                        Name = strArray[0],
+                        Category = strArray[1],
+                        Description = strArray[2],
+                        Price = double.Parse(strArray[3])
+                    };
+
+                    menuChoices.Add(Menu);
+
                 }
-                //Console.WriteLine(file.ReadToEnd());
+
+                //using (StreamReader file =
+                //    new StreamReader(@"C:\dev\GrandCircus\Midterm2\inventory.txt"))
+                //{
+                //    while ((line = file.ReadLine()) != null)
+                //    {
+                //        string[] elements = line.Split(',');
+                //        menu.Add(new Product(elements[0], elements[1], elements[2], double.Parse(elements[3])));
+                //        index++;
+                //    }
+                //    //Console.WriteLine(file.ReadToEnd());
+                //}
+
             }
 
-            return menu;
+            return menuChoices;
         }
     }
 }
