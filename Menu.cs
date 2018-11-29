@@ -36,11 +36,11 @@ namespace Midterm2
             Console.Write("Please choose your item(s) by number: ");
             while (doAgain)
             {
-                var selection = Console.ReadLine();
+                var selection = Validator.ValidateUserSelection();
                 var foodItemPrice = menu[selection].Price;
 
                 Console.Write("How many would you like? Please enter a whole number (ex. 1, 2, 3): ");
-                var multiplier = Console.ReadLine();
+                var multiplier = Validator.ValidateUserSelection();
 
                 var multipliedFoodItemPrice = foodItemPrice * multiplier;
 

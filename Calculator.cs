@@ -11,7 +11,7 @@ namespace Midterm2
 
         private static double _taxRatePercent = .06;
 
-        //Console.Writeline("Input price of itme : ")
+        //Console.Writeline("Input price of item : ")
 
         double itemPrice = double.Parse(Console.ReadLine());
         double totalPrice = double.Parse(Console.ReadLine());
