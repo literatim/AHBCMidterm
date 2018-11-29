@@ -15,6 +15,6 @@ namespace Midterm2
             WriteLine("Welcome to the Oracle Java Shop! (written in C#)");
 
         }
-        
+
     }
 }
