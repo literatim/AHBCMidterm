@@ -5,8 +5,8 @@ Americano, Beverage, Half hot bean juice half water, 2.00
 Cortado, Beverage, Half hot bean juice half cow juice, 3.00
 Green Tea Latte, Beverage, Milk and leaves, 4.00
 Bottled Water, Beverage, This is free at your house, 9.00
-Blueberry Muffin, Crumble bread, 2.00
-Everything Bagel, We aren't liable for the poppies, 3.00
-Chocolate Donut, Hurts donut?, 1.00
-Biscotti, Diamond bread, 2.00
-Golden Banana, Legend says it's cursed, 900.00
+Blueberry Muffin, Food, Crumble bread, 2.00
+Everything Bagel, Food, We aren't liable for the poppies, 3.00
+Chocolate Donut, Food, Hurts donut?, 1.00
+Biscotti, Food, Diamond bread, 2.00
+Golden Banana, Food, Legend says it's cursed, 900.00

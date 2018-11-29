@@ -30,7 +30,7 @@ namespace Midterm2
            //int index = 1;
 
             List<Product> menuChoices = new List<Product>();
-            using (StreamReader sr = new StreamReader(@"C:\dev\GrandCircus\Midterm2\inventory.txt"))
+            using (StreamReader sr = new StreamReader(@"C:\Users\crazy\Desktop\C# projects\AHBCMidterm\inventory.txt"))
             {
                 while (sr.Peek() >= 0)
                 {
@@ -39,13 +39,13 @@ namespace Midterm2
                     str = sr.ReadLine();
 
                     strArray = str.Split(',');
-                    Product Menu = new Product
-                    {
-                        Name = strArray[0],
-                        Category = strArray[1],
-                        Description = strArray[2],
-                        Price = double.Parse(strArray[3])
-                    };
+                    Product Menu = new Product(strArray[0], strArray[1], strArray[2], double.Parse(strArray[3]));
+                    //{
+                    //    Name = strArray[0],
+                    //    Category = strArray[1],
+                    //    Description = strArray[2],
+                    //    Price = double.Parse(strArray[3])
+                    //};
 
                     menuChoices.Add(Menu);
 
