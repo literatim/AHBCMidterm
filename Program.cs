@@ -21,6 +21,8 @@ namespace Midterm2
 
             var orderTotal = Menu.CalculateLineTotals(menuSelections);
 
+            var taxOwed = Calculator.CalculateSalesTax(orderTotal);
+
             var grandTotal =  Calculator.CalculateGrandTotal(orderTotal);
 
             WriteLine(Environment.NewLine + $"Your total is: {grandTotal:C}. How would you like to pay?");
@@ -30,27 +32,35 @@ namespace Midterm2
             Write(Environment.NewLine+ "Enter 1-3:");
             var paymentForm = int.Parse(ReadLine());
 
+            var orderReceipt = new Receipt
+            {
+                ItemsPurchased = menuSelections,
+                Taxes = taxOwed,
+                Subtotal = orderTotal,
+                GrandTotal = grandTotal
+            };
+
             switch (paymentForm)
             {
                 case 1:
-                        Payment.TakeCashPayment(grandTotal);
+                    orderReceipt.PaymentDetails = Payment.TakeCashPayment(grandTotal);
                     break;
                 case 2:
-                    Payment.TakeCreditPayment(grandTotal);
+                    orderReceipt.PaymentDetails = Payment.TakeCreditPayment(grandTotal);
                     break;
                 case 3:
-                    Payment.TakeCheckPayment(grandTotal);
+                    orderReceipt.PaymentDetails = Payment.TakeCheckPayment(grandTotal);
                     break;
                 default:
                     WriteLine("Invalid selection.");
                     break;
             }
 
-            //Display receipt
+            //Print receipt to console
 
-
-            //Save receipt in a list called OrderHistory
-
+            
+            List<Receipt> orderHistoryList = new List<Receipt>();
+            orderHistoryList.Add(orderReceipt);
 
 
             ReadKey();
