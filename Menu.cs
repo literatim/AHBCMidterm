@@ -19,17 +19,19 @@ namespace Midterm2
             _multipliedPrice = MultipliedPrice;
         }
 
-        public static void PrintMenu(List<Product> menu)
+        public static List<Product> PrintMenu(List<Product> menu)
         {
-            var number = 1;
+            var number = 0;
             foreach (var Product in menu)
             {
-                Console.WriteLine($"{number}. {Product.Name} /n{Product.Category} /n{Product.Description} /n{Product.Price}.");
+                Console.WriteLine("|{0,3}| {1,10} | {2, 10} | {3,10} | {4,4} |", number, Product.Name, Product.Description, Product.Category, Product.Price);
                 number++;
             }
+
+            return menu;
         }
 
-        public List<Menu> BuildCustomerOrder(List<Product> menu)
+        public static List<Menu> BuildCustomerOrder(List<Product> menu)
         {
             List<Menu> menuSelections = new List<Menu>();
             var doAgain = true;
@@ -49,12 +51,7 @@ namespace Midterm2
                 Console.Write("Would you like to add another item? Yes or No: ");
                 var repeat = Console.ReadLine();
 
-                if (repeat.StartsWith("y", StringComparison.OrdinalIgnoreCase))
-                {
-                    doAgain = true;
-                }
-
-                else
+                if (!repeat.StartsWith("y", StringComparison.OrdinalIgnoreCase))
                 {
                     doAgain = false;
                 }
