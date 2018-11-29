@@ -14,7 +14,7 @@ namespace Midterm2
             double input = Convert.ToDouble(Console.ReadLine());
             double change = input - total;
 
-            Console.Write($"Cash tendered: ${input}. Change: ${change}");
+            Console.Write($"Cash tendered: ${input:C}. Change: ${change:C}");
             return change;
         }
 
@@ -32,7 +32,7 @@ namespace Midterm2
             Console.Write("Enter CVV (3 digits on back): ");
             cvv = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"${total} will be charged to card number {creditCardNumber}.");
+            Console.WriteLine($"${total:C} will be charged to card number {creditCardNumber}.");
 
             creditCardList.Add(creditCardNumber);
             creditCardList.Add(expDate);
@@ -47,7 +47,7 @@ namespace Midterm2
             Console.Write("Enter a checking account number: ");
             int checkNumber = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"${total} will be charged to check number {checkNumber}.");
+            Console.WriteLine($"${total:C} will be charged to check number {checkNumber}.");
 
             return checkNumber;
 

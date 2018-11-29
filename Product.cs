@@ -30,7 +30,7 @@ namespace Midterm2
            //int index = 1;
 
             List<Product> menuChoices = new List<Product>();
-            using (StreamReader sr = new StreamReader(@"C:\Users\crazy\Desktop\C# projects\AHBCMidterm\inventory.txt"))
+            using (StreamReader sr = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "inventory.txt")))
             {
                 while (sr.Peek() >= 0)
                 {
