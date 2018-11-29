@@ -19,8 +19,12 @@ namespace Midterm2
                     sum += products[i].Price;
                 }
 
+<<<<<<< HEAD
                 return sum;
             }
+=======
+        //Console.Writeline("Input price of item : ")
+>>>>>>> 3bb6496088b292737cf5ed5d3405fd54b2fcdffb
 
             //passes price as a double which is the price of the item
             public double CalculateGrandTotal(List<Product> products)
