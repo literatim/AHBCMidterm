@@ -29,7 +29,7 @@ namespace Midterm2
             List<int> creditCardList = new List<int>();
             
             Console.Write("Enter credit card number (16 digits): ");
-            creditCardNumber = Convert.ToInt16(Console.ReadLine());
+            creditCardNumber = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Enter expiration date (MMYY): ");
             expDate = Convert.ToInt32(Console.ReadLine());

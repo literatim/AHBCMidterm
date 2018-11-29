@@ -12,31 +12,36 @@ namespace Midterm2
             // test comment
             private const double salesTax = 0.06d;
             //total without sales tax
-            public double CalculateTotal(List<Product> products)
-            {
-                double sum = 0;
-                for (int i = 0; i < products.Count; i++)
-                {
-                    sum += products[i].Price;
-                }
+            //public double CalculateTotal(List<Product> products)
+            //{
+            //    double sum = 0;
+            //    for (int i = 0; i < products.Count; i++)
+            //    {
+            //        sum += products[i].Price;
+            //    }
 
 
-                return sum;
-            }
+            //    return sum;
+            //}
         //Console.Writeline("Input price of item : ")
 
 
             //passes price as a double which is the price of the item
-            public double CalculateGrandTotal(List<Product> products)
+            public static double CalculateGrandTotal(double orderTotal)
             {
 
-                double productTotal = CalculateTotal(products);
+                //double orderTotal = CalculateTotal(products);
 
                 //takes product total and adds that to product sales tax
-                return productTotal + CalculateSalesTax(productTotal);
+
+                double taxTotal = CalculateSalesTax(orderTotal);
+
+                double grandTotal = taxTotal + orderTotal;
+
+                return grandTotal;
             }
 
-            public double CalculateSalesTax(double amount)
+            public static double CalculateSalesTax(double amount)
             {
                 return (salesTax * amount);
             }
