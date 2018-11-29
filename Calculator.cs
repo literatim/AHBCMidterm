@@ -9,6 +9,7 @@ namespace Midterm2
     class Calculator
 
     {         
+            // test comment
             private const double salesTax = 0.06d;
             //total without sales tax
             public double CalculateTotal(List<Product> products)
