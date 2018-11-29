@@ -8,14 +8,19 @@ namespace Midterm2
 {
     class Payment
     {
-        public static double TakeCashPayment(double total)
+        public static List<double> TakeCashPayment(double total)
         {
+            List<double> cashPayment = new List<double>();
             Console.Write("Enter amount tendered: ");
             double input = Convert.ToDouble(Console.ReadLine());
             double change = input - total;
 
-            Console.Write($"Cash tendered: ${input:C}. Change: ${change:C}");
-            return change;
+            Console.Write($"Cash tendered: {input:C}. Change: {change:C}");
+
+            cashPayment.Add(input);
+            cashPayment.Add(change);
+
+            return cashPayment;
         }
 
         public static List<int> TakeCreditPayment(double total)
@@ -24,7 +29,7 @@ namespace Midterm2
             List<int> creditCardList = new List<int>();
             
             Console.Write("Enter credit card number (16 digits): ");
-            creditCardNumber = Convert.ToInt32(Console.ReadLine());
+            creditCardNumber = Convert.ToInt16(Console.ReadLine());
 
             Console.Write("Enter expiration date (MMYY): ");
             expDate = Convert.ToInt32(Console.ReadLine());
@@ -32,7 +37,7 @@ namespace Midterm2
             Console.Write("Enter CVV (3 digits on back): ");
             cvv = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"${total:C} will be charged to card number {creditCardNumber}.");
+            Console.WriteLine($"{total:C} will be charged to card number {creditCardNumber}.");
 
             creditCardList.Add(creditCardNumber);
             creditCardList.Add(expDate);
@@ -47,7 +52,7 @@ namespace Midterm2
             Console.Write("Enter a checking account number: ");
             int checkNumber = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"${total:C} will be charged to check number {checkNumber}.");
+            Console.WriteLine($"{total:C} will be charged to check number {checkNumber}.");
 
             return checkNumber;
 
