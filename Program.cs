@@ -60,10 +60,11 @@ namespace Midterm2
 
                 Console.Clear();
 
-                Console.WriteLine("YOUR RECEIPT" + Environment.NewLine);
+                Console.WriteLine("YOUR RECEIPT");
                 Console.WriteLine(DateTime.Now + Environment.NewLine);
+
                 Console.WriteLine("ITEMS");
-                orderReceipt.ItemsPurchased.ForEach(Console.WriteLine);
+                //TODO: Print items
 
                 Console.WriteLine(Environment.NewLine + "TOTAL");
                 Console.WriteLine($"Subtotal: {orderReceipt.Subtotal:C}");
@@ -71,7 +72,7 @@ namespace Midterm2
                 Console.WriteLine($"Total: {orderReceipt.GrandTotal:C}");
 
                 Console.WriteLine(Environment.NewLine + $"PAYMENT");
-                Console.WriteLine($"{orderReceipt.PaymentDetails}");
+                //TODO: Print payment details
 
                 List<Receipt> orderHistoryList = new List<Receipt>();
                 orderHistoryList.Add(orderReceipt);
