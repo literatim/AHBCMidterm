@@ -30,7 +30,8 @@ namespace Midterm2
             WriteLine("2 - Credit Card");
             WriteLine("3 - Check");
             Write(Environment.NewLine+ "Enter 1-3:");
-            var paymentForm = int.Parse(ReadLine());
+
+            var paymentForm = Validator.ValidatePaymentChoice();
 
             var orderReceipt = new Receipt
             {
