@@ -35,7 +35,7 @@ namespace Midterm2
             List<int> creditCardList = new List<int>();
             
             Console.Write("Enter last 4 of credit card number: ");
-            creditCardNumber = Validator.ValidateCCNumber();
+            creditCardNumber = Validator.ValidateCcNumber();
 
             Console.Write("Enter expiration date (MMYY): ");
             expDate = Validator.ValidateExpirationDate();

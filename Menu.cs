@@ -8,8 +8,8 @@ namespace Midterm2
 {
     class Menu
     {
-        private string _item { get; set; }
-        private double _multipliedPrice { get; set; }
+        public string _item { get; set; }
+        public double _multipliedPrice { get; set; }
         public double _multiplier { get; set; }
 
         public Menu(string Item, double MultipliedPrice, double Multiplier)

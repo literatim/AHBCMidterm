@@ -8,6 +8,7 @@ namespace Midterm2
 {
     class Validator
     {
+        //TODO: Fix CC, check, CVV, exp date validation
         public static uint ValidateMultiplierSelection()
         {
             uint input;
@@ -71,7 +72,7 @@ namespace Midterm2
         {
             int input = Convert.ToInt16(ValidateMultiplierSelection());
 
-            while (input != 4)
+            while (!Enumerable.Range(1000, 9999).Contains(input))
             {
                 Console.WriteLine("Invalid check number!");
                 Console.Write("Enter last 4 of checking account number: ");
@@ -81,11 +82,11 @@ namespace Midterm2
             return input;
         }
 
-        public static int ValidateCCNumber()
+        public static int ValidateCcNumber()
         {
             int input = Convert.ToInt16(ValidateMultiplierSelection());
 
-            while (input != 4)
+            while (!Enumerable.Range(1000, 9999).Contains(input))
             {
                 Console.WriteLine("Invalid credit card number!");
                 Console.Write("Enter last 4 of credit card number: ");
@@ -99,7 +100,7 @@ namespace Midterm2
         {
             int input = Convert.ToInt16(ValidateMultiplierSelection());
 
-            while (input != 4)
+            while (!Enumerable.Range(0000, 9999).Contains(input))
             {
                 Console.WriteLine("Invalid expiration date!");
                 Console.Write("Enter expiration date (MMYY): ");
@@ -113,7 +114,7 @@ namespace Midterm2
         {
             int input = Convert.ToInt16(ValidateMultiplierSelection());
 
-            while (input != 3)
+            while (!Enumerable.Range(100, 999).Contains(input))
             {
                 Console.WriteLine("Invalid CVV number!");
                 Console.Write("Enter CVV number (3 digits on back of card): ");
