@@ -16,7 +16,7 @@ namespace Midterm2
 
                 WriteLine("Welcome to the Oracle Java Shop! (written in C#)" + Environment.NewLine);
 
-                WriteLine(Menu.PrintMenu(menu));
+                Menu.PrintMenu(menu);
 
                 List<Menu> menuSelections = new List<Menu>(Menu.BuildCustomerOrder(menu));
 
