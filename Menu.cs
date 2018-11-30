@@ -22,6 +22,8 @@ namespace Midterm2
         public static void PrintMenu(List<Product> menu)
         {
             var number = 1;
+            Console.WriteLine("MENU" + Environment.NewLine);
+
             foreach (var Product in menu)
             {
                 Console.WriteLine("|{0,3}| {1,10} | {2, 10} | {3,10} | {4,4} |", number, Product.Name, Product.Description, Product.Category, Product.Price);
@@ -54,7 +56,7 @@ namespace Midterm2
                     doAgain = false;
                 }
             }
-
+            Console.Clear();
             return menuSelections;
         }
 
@@ -62,10 +64,10 @@ namespace Midterm2
         {
             double menuSum = 0;
 
-            Console.WriteLine(Environment.NewLine + "Here is your order:");
+            Console.WriteLine("Here is your order:");
             foreach (var Menu in menuSelections)
             {
-                Console.WriteLine($"Line total for {Menu._item}(x{Menu._multiplier}): ${Menu._multipliedPrice}");
+                Console.WriteLine($"{Menu._item} (x{Menu._multiplier}): {Menu._multipliedPrice:C}");
 
                 menuSum += Menu._multipliedPrice;
             }

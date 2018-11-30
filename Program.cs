@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using static System.Console;
 
@@ -12,9 +13,32 @@ namespace Midterm2
             {
                 Console.Clear();
 
-                List<Product> menu = Product.GetInventoryList();
+                List<Product> menu = Product.GetInventoryList(); 
 
                 WriteLine("Welcome to the Oracle Java Shop! (written in C#)" + Environment.NewLine);
+
+                string title = @"
+                          {
+                          {   }
+                           }_{ __{
+                        .-{   }   }-.
+                       (   }     {   )
+                       |`-.._____..-'|
+                       |             ;--.
+                       |            (__  \
+                       |             | )  )
+                       |             |/  /
+                       |             /  /
+                       |            (  /
+                       \             y'
+                        `-.._____..-'
+                ";
+
+                Console.WriteLine(title + Environment.NewLine);
+
+                Console.Write("Press any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
 
                 Menu.PrintMenu(menu);
 
@@ -64,20 +88,23 @@ namespace Midterm2
                 Console.WriteLine(DateTime.Now + Environment.NewLine);
 
                 Console.WriteLine("ITEMS");
-                //TODO: Print items
                 foreach (var item in menuSelections)
                 {
-                    Console.WriteLine($"{0} x{1} = {2:C}", item._item, item._multiplier, item._multipliedPrice);
+                    Console.WriteLine("{0} x{1} = {2:C}", item._item, item._multiplier, item._multipliedPrice);
                     
                 }
 
                 Console.WriteLine(Environment.NewLine + "TOTAL");
                 Console.WriteLine($"Subtotal: {orderReceipt.Subtotal:C}");
-                Console.WriteLine($"Tax: {orderReceipt.Taxes:C}");
+                Console.WriteLine($"Tax (MI 6%): {orderReceipt.Taxes:C}");
                 Console.WriteLine($"Total: {orderReceipt.GrandTotal:C}");
 
                 Console.WriteLine(Environment.NewLine + $"PAYMENT");
-                //TODO: Print payment details
+                foreach (var payment in (IEnumerable) orderReceipt.PaymentDetails)
+                {
+                    Console.WriteLine(payment);
+
+                }
 
                 List<Receipt> orderHistoryList = new List<Receipt>();
                 orderHistoryList.Add(orderReceipt);
