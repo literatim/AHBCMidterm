@@ -13,20 +13,5 @@ namespace Midterm2
         public double Subtotal { get; set; }
         public double GrandTotal { get; set; }
         public object PaymentDetails { get; set; }
-
-
-        public static Receipt CreateReceipt(List<Menu> itemsPurchased, double orderTotal, double taxOwed, double grandTotal, object paymentDetails)
-        {
-            var orderReceipt = new Receipt
-            {
-                ItemsPurchased = itemsPurchased,
-                Taxes = taxOwed,
-                Subtotal = orderTotal,
-                GrandTotal = grandTotal,
-                PaymentDetails = paymentDetails
-            };
-
-            return orderReceipt;
-        }
     }
 }

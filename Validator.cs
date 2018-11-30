@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,6 @@ namespace Midterm2
 {
     class Validator
     {
-        //TODO: Fix CC, check, CVV, exp date validation
         public static uint ValidateMultiplierSelection()
         {
             uint input;
@@ -68,28 +68,14 @@ namespace Midterm2
             return input;
         }
 
-        public static int ValidateCheckPayment()
+        public static int ValidateLastFourNumbers()
         {
             int input = Convert.ToInt16(ValidateMultiplierSelection());
 
-            while (!Enumerable.Range(1000, 9999).Contains(input))
+            while (input.ToString().Length != 4)
             {
-                Console.WriteLine("Invalid check number!");
-                Console.Write("Enter last 4 of checking account number: ");
-                input = Convert.ToInt16(ValidateMultiplierSelection());
-            }
-
-            return input;
-        }
-
-        public static int ValidateCcNumber()
-        {
-            int input = Convert.ToInt16(ValidateMultiplierSelection());
-
-            while (!Enumerable.Range(1000, 9999).Contains(input))
-            {
-                Console.WriteLine("Invalid credit card number!");
-                Console.Write("Enter last 4 of credit card number: ");
+                Console.WriteLine("Entry must be 4 digits!");
+                Console.Write("Please enter last 4 digits: ");
                 input = Convert.ToInt16(ValidateMultiplierSelection());
             }
 
@@ -100,10 +86,11 @@ namespace Midterm2
         {
             int input = Convert.ToInt16(ValidateMultiplierSelection());
 
-            while (!Enumerable.Range(0000, 9999).Contains(input))
+
+            while (input.ToString().Length != 4)
             {
-                Console.WriteLine("Invalid expiration date!");
-                Console.Write("Enter expiration date (MMYY): ");
+                Console.WriteLine("Entry must be 4 digits!");
+                Console.Write("Please enter expiration date (MMYY): ");
                 input = Convert.ToInt16(ValidateMultiplierSelection());
             }
 
@@ -114,7 +101,7 @@ namespace Midterm2
         {
             int input = Convert.ToInt16(ValidateMultiplierSelection());
 
-            while (!Enumerable.Range(100, 999).Contains(input))
+            while (input.ToString().Length != 3)
             {
                 Console.WriteLine("Invalid CVV number!");
                 Console.Write("Enter CVV number (3 digits on back of card): ");
