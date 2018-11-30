@@ -19,7 +19,7 @@ namespace Midterm2
             _multipliedPrice = MultipliedPrice;
         }
 
-        public static List<Product> PrintMenu(List<Product> menu)
+        public static void PrintMenu(List<Product> menu)
         {
             var number = 1;
             foreach (var Product in menu)
@@ -27,8 +27,6 @@ namespace Midterm2
                 Console.WriteLine("|{0,3}| {1,10} | {2, 10} | {3,10} | {4,4} |", number, Product.Name, Product.Description, Product.Category, Product.Price);
                 number++;
             }
-
-            return menu;
         }
 
         public static List<Menu> BuildCustomerOrder(List<Product> menu)
