@@ -10,6 +10,8 @@ namespace Midterm2
         {
             do
             {
+                Console.Clear();
+
                 List<Product> menu = Product.GetInventoryList();
 
                 WriteLine("Welcome to the Oracle Java Shop! (written in C#)" + Environment.NewLine);
@@ -58,7 +60,8 @@ namespace Midterm2
 
                 Console.Clear();
 
-                Console.WriteLine("Your Receipt" + Environment.NewLine);
+                Console.WriteLine("YOUR RECEIPT" + Environment.NewLine);
+                Console.WriteLine(DateTime.Now + Environment.NewLine);
                 Console.WriteLine("ITEMS");
                 orderReceipt.ItemsPurchased.ForEach(Console.WriteLine);
 
@@ -66,7 +69,8 @@ namespace Midterm2
                 Console.WriteLine($"Subtotal: {orderReceipt.Subtotal:C}");
                 Console.WriteLine($"Tax: {orderReceipt.Taxes:C}");
                 Console.WriteLine($"Total: {orderReceipt.GrandTotal:C}");
-                Console.WriteLine(Environment.NewLine + $"Payment Information");
+
+                Console.WriteLine(Environment.NewLine + $"PAYMENT");
                 Console.WriteLine($"{orderReceipt.PaymentDetails}");
 
                 List<Receipt> orderHistoryList = new List<Receipt>();
