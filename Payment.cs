@@ -8,14 +8,19 @@ namespace Midterm2
 {
     class Payment
     {
-        public static double TakeCashPayment(double total)
+        public static List<double> TakeCashPayment(double total)
         {
+            List<double> cashPayment = new List<double>();
             Console.Write("Enter amount tendered: ");
-            double input = Convert.ToDouble(Console.ReadLine());
+            var input = Validator.ValidateCashPayment();
             double change = input - total;
 
-            Console.Write($"Cash tendered: ${input}. Change: ${change}");
-            return change;
+            Console.Write($"Cash tendered: {input:C}. Change: {change:C}");
+
+            cashPayment.Add(input);
+            cashPayment.Add(change);
+
+            return cashPayment;
         }
 
         public static List<int> TakeCreditPayment(double total)
@@ -27,12 +32,12 @@ namespace Midterm2
             creditCardNumber = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Enter expiration date (MMYY): ");
-            expDate = Convert.ToInt32(Console.ReadLine());
+            expDate = Validator.ValidateExpirationDate();
 
-            Console.Write("Enter CVV (3 digits on back): ");
-            cvv = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter CVV (3 digits on back of card): ");
+            cvv = Validator.ValidateCVVNumber();
 
-            Console.WriteLine($"${total} will be charged to card number {creditCardNumber}.");
+            Console.WriteLine($"{total:C} will be charged to card number {creditCardNumber}.");
 
             creditCardList.Add(creditCardNumber);
             creditCardList.Add(expDate);
@@ -45,9 +50,9 @@ namespace Midterm2
         public static int TakeCheckPayment(double total)
         {
             Console.Write("Enter a checking account number: ");
-            int checkNumber = Convert.ToInt32(Console.ReadLine());
+            int checkNumber = Validator.ValidateCheckPayment();
 
-            Console.WriteLine($"${total} will be charged to check number {checkNumber}.");
+            Console.WriteLine($"{total:C} will be charged to check number {checkNumber}.");
 
             return checkNumber;
 

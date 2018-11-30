@@ -24,37 +24,32 @@ namespace Midterm2
             var number = 1;
             foreach (var Product in menu)
             {
-                Console.WriteLine($"{number}. {Product.Name} /n{Product.Category} /n{Product.Description} /n{Product.Price}.");
+                Console.WriteLine("|{0,3}| {1,10} | {2, 10} | {3,10} | {4,4} |", number, Product.Name, Product.Description, Product.Category, Product.Price);
                 number++;
             }
         }
 
-        public List<Menu> BuildCustomerOrder(List<Product> menu)
+        public static List<Menu> BuildCustomerOrder(List<Product> menu)
         {
             List<Menu> menuSelections = new List<Menu>();
             var doAgain = true;
-            Console.Write("Please choose your item(s) by number: ");
             while (doAgain)
             {
-                var selection = Validator.ValidateUserSelection();
+                Console.Write(Environment.NewLine + "Please choose your item(s) by number: ");
+                var selection = Validator.ValidateMenuChoice();
                 var foodItemPrice = menu[selection].Price;
 
-                Console.Write("How many would you like? Please enter a whole number (ex. 1, 2, 3): ");
-                var multiplier = Validator.ValidateUserSelection();
+                Console.Write(Environment.NewLine + "How many would you like? Please enter a whole number (ex. 1, 2, 3): ");
+                var multiplier = Validator.ValidateMultiplierSelection();
 
                 var multipliedFoodItemPrice = foodItemPrice * multiplier;
 
                 menuSelections.Add(new Menu(menu[selection].Name, multipliedFoodItemPrice, multiplier));
 
-                Console.Write("Would you like to add another item? Yes or No: ");
+                Console.Write(Environment.NewLine + "Would you like to add another item? (Yes/No): ");
                 var repeat = Console.ReadLine();
 
-                if (repeat.StartsWith("y", StringComparison.OrdinalIgnoreCase))
-                {
-                    doAgain = true;
-                }
-
-                else
+                if (!repeat.StartsWith("y", StringComparison.OrdinalIgnoreCase))
                 {
                     doAgain = false;
                 }
@@ -63,11 +58,11 @@ namespace Midterm2
             return menuSelections;
         }
 
-        public double CalculateLineTotals(List<Menu> menuSelections)
+        public static double CalculateLineTotals(List<Menu> menuSelections)
         {
             double menuSum = 0;
 
-            Console.WriteLine("Here is your order:");
+            Console.WriteLine(Environment.NewLine + "Here is your order:");
             foreach (var Menu in menuSelections)
             {
                 Console.WriteLine($"Line total for {Menu._item}(x{Menu._multiplier}): ${Menu._multipliedPrice}");
