@@ -65,6 +65,11 @@ namespace Midterm2
 
                 Console.WriteLine("ITEMS");
                 //TODO: Print items
+                foreach (var item in menuSelections)
+                {
+                    Console.WriteLine($"{0} x{1} = {2:C}", item._item, item._multiplier, item._multipliedPrice);
+                    
+                }
 
                 Console.WriteLine(Environment.NewLine + "TOTAL");
                 Console.WriteLine($"Subtotal: {orderReceipt.Subtotal:C}");
