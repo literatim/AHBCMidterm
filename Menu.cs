@@ -21,7 +21,7 @@ namespace Midterm2
 
         public static List<Product> PrintMenu(List<Product> menu)
         {
-            var number = 0;
+            var number = 1;
             foreach (var Product in menu)
             {
                 Console.WriteLine("|{0,3}| {1,10} | {2, 10} | {3,10} | {4,4} |", number, Product.Name, Product.Description, Product.Category, Product.Price);
@@ -38,11 +38,11 @@ namespace Midterm2
             while (doAgain)
             {
                 Console.Write(Environment.NewLine + "Please choose your item(s) by number: ");
-                var selection = Validator.ValidateUserSelection();
+                var selection = Validator.ValidateMenuChoice();
                 var foodItemPrice = menu[selection].Price;
 
                 Console.Write(Environment.NewLine + "How many would you like? Please enter a whole number (ex. 1, 2, 3): ");
-                var multiplier = Validator.ValidateUserSelection();
+                var multiplier = Validator.ValidateMultiplierSelection();
 
                 var multipliedFoodItemPrice = foodItemPrice * multiplier;
 
