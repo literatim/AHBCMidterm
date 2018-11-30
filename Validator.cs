@@ -46,7 +46,7 @@ namespace Midterm2
                 input = Convert.ToInt16(ValidateMultiplierSelection());
             }
 
-            return input -1 ;
+            return input;
         }
 
         public static double ValidateCashPayment()

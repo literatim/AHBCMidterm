@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace Midterm2
@@ -11,61 +8,74 @@ namespace Midterm2
     {
         static void Main(string[] args)
         {
-            List<Product> menu = Product.GetInventoryList();
-
-            WriteLine("Welcome to the Oracle Java Shop! (written in C#)" + Environment.NewLine);
-
-            WriteLine(Menu.PrintMenu(menu));
-
-            List<Menu> menuSelections = new List<Menu>(Menu.BuildCustomerOrder(menu));
-
-            var orderTotal = Menu.CalculateLineTotals(menuSelections);
-
-            var taxOwed = Calculator.CalculateSalesTax(orderTotal);
-
-            var grandTotal =  Calculator.CalculateGrandTotal(orderTotal);
-
-            WriteLine(Environment.NewLine + $"Your total is: {grandTotal:C}. How would you like to pay?");
-            WriteLine("1 - Cash");
-            WriteLine("2 - Credit Card");
-            WriteLine("3 - Check");
-            Write(Environment.NewLine+ "Enter 1-3:");
-
-            var paymentForm = Validator.ValidatePaymentChoice();
-
-            var orderReceipt = new Receipt
+            do
             {
-                ItemsPurchased = menuSelections,
-                Taxes = taxOwed,
-                Subtotal = orderTotal,
-                GrandTotal = grandTotal
-            };
+                List<Product> menu = Product.GetInventoryList();
 
-            switch (paymentForm)
-            {
-                case 1:
-                    orderReceipt.PaymentDetails = Payment.TakeCashPayment(grandTotal);
-                    break;
-                case 2:
-                    orderReceipt.PaymentDetails = Payment.TakeCreditPayment(grandTotal);
-                    break;
-                case 3:
-                    orderReceipt.PaymentDetails = Payment.TakeCheckPayment(grandTotal);
-                    break;
-                default:
-                    WriteLine("Invalid selection.");
-                    break;
-            }
+                WriteLine("Welcome to the Oracle Java Shop! (written in C#)" + Environment.NewLine);
 
-            //Print receipt to console
+                WriteLine(Menu.PrintMenu(menu));
 
-            
-            List<Receipt> orderHistoryList = new List<Receipt>();
-            orderHistoryList.Add(orderReceipt);
+                List<Menu> menuSelections = new List<Menu>(Menu.BuildCustomerOrder(menu));
+
+                var orderTotal = Menu.CalculateLineTotals(menuSelections);
+
+                var taxOwed = Calculator.CalculateSalesTax(orderTotal);
+
+                var grandTotal =  Calculator.CalculateGrandTotal(orderTotal);
+
+                WriteLine(Environment.NewLine + $"Your total is: {grandTotal:C}. How would you like to pay?");
+                WriteLine("1 - Cash");
+                WriteLine("2 - Credit Card");
+                WriteLine("3 - Check");
+                Write(Environment.NewLine+ "Enter 1-3: ");
+
+                var paymentForm = Validator.ValidatePaymentChoice();
+
+                var orderReceipt = new Receipt
+                {
+                    ItemsPurchased = menuSelections,
+                    Taxes = taxOwed,
+                    Subtotal = orderTotal,
+                    GrandTotal = grandTotal
+                };
+
+                switch (paymentForm)
+                {
+                    case 1:
+                        orderReceipt.PaymentDetails = Payment.TakeCashPayment(grandTotal);
+                        break;
+                    case 2:
+                        orderReceipt.PaymentDetails = Payment.TakeCreditPayment(grandTotal);
+                        break;
+                    case 3:
+                        orderReceipt.PaymentDetails = Payment.TakeCheckPayment(grandTotal);
+                        break;
+                    default:
+                        WriteLine("Invalid selection.");
+                        break;
+                }
+
+                Console.Clear();
+
+                Console.WriteLine("Your Receipt" + Environment.NewLine);
+                Console.WriteLine("ITEMS");
+                orderReceipt.ItemsPurchased.ForEach(Console.WriteLine);
+
+                Console.WriteLine(Environment.NewLine + "TOTAL");
+                Console.WriteLine($"Subtotal: {orderReceipt.Subtotal:C}");
+                Console.WriteLine($"Tax: {orderReceipt.Taxes:C}");
+                Console.WriteLine($"Total: {orderReceipt.GrandTotal:C}");
+                Console.WriteLine(Environment.NewLine + $"Payment Information");
+                Console.WriteLine($"{orderReceipt.PaymentDetails}");
+
+                List<Receipt> orderHistoryList = new List<Receipt>();
+                orderHistoryList.Add(orderReceipt);
 
 
-            ReadKey();
+                Console.Write(Environment.NewLine + "Would you like to place another order? (Y/N): ");
 
+            } while (Console.ReadLine().Equals("y", StringComparison.OrdinalIgnoreCase));
         }
 
     }
