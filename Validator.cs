@@ -8,10 +8,10 @@ namespace Midterm2
 {
     class Validator
     {
-        public static uint ValidateMultiplierSelection()
+        public static ulong ValidateMultiplierSelection()
         {
-            uint input;
-            while (!uint.TryParse(Console.ReadLine(), out input))
+            ulong input;
+            while (!ulong.TryParse(Console.ReadLine(), out input))
             {
                 Console.WriteLine("Please enter a valid numerical value!");
                 Console.Write("Please enter a number: ");
