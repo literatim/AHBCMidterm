@@ -13,6 +13,12 @@ namespace Midterm2
             List<double> cashPayment = new List<double>();
             Console.Write("Enter amount tendered: ");
             var input = Validator.ValidateCashPayment();
+            while (input < total)
+            {
+                Console.WriteLine("Cash entered is less than amount due!");
+                Console.Write("Enter amount tendered: ");
+                input = Validator.ValidateCashPayment();
+            }
             double change = input - total;
 
             Console.Write($"Cash tendered: {input:C}. Change: {change:C}");
@@ -28,8 +34,8 @@ namespace Midterm2
             int creditCardNumber, expDate, cvv;
             List<int> creditCardList = new List<int>();
             
-            Console.Write("Enter credit card number (16 digits): ");
-            creditCardNumber = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter last 4 of credit card number: ");
+            creditCardNumber = Validator.ValidateCCNumber();
 
             Console.Write("Enter expiration date (MMYY): ");
             expDate = Validator.ValidateExpirationDate();
@@ -49,7 +55,7 @@ namespace Midterm2
         }
         public static int TakeCheckPayment(double total)
         {
-            Console.Write("Enter a checking account number: ");
+            Console.Write("Enter last 4 of checking account number: ");
             int checkNumber = Validator.ValidateCheckPayment();
 
             Console.WriteLine($"{total:C} will be charged to check number {checkNumber}.");

@@ -8,10 +8,10 @@ namespace Midterm2
 {
     class Validator
     {
-        public static ulong ValidateMultiplierSelection()
+        public static uint ValidateMultiplierSelection()
         {
-            ulong input;
-            while (!ulong.TryParse(Console.ReadLine(), out input))
+            uint input;
+            while (!uint.TryParse(Console.ReadLine(), out input))
             {
                 Console.WriteLine("Please enter a valid numerical value!");
                 Console.Write("Please enter a number: ");
@@ -71,10 +71,10 @@ namespace Midterm2
         {
             int input = Convert.ToInt16(ValidateMultiplierSelection());
 
-            while (!Enumerable.Range(8, 17).Contains(input))
+            while (input != 4)
             {
                 Console.WriteLine("Invalid check number!");
-                Console.Write("Please enter a check number (8-17 digits): ");
+                Console.Write("Enter last 4 of checking account number: ");
                 input = Convert.ToInt16(ValidateMultiplierSelection());
             }
 
@@ -85,10 +85,10 @@ namespace Midterm2
         {
             int input = Convert.ToInt16(ValidateMultiplierSelection());
 
-            while (input < 16)
+            while (input != 4)
             {
-                Console.WriteLine("Invalid CC number length!");
-                Console.Write("Enter credit card number (16 digits): ");
+                Console.WriteLine("Invalid credit card number!");
+                Console.Write("Enter last 4 of credit card number: ");
                 input = Convert.ToInt16(ValidateMultiplierSelection());
             }
 
