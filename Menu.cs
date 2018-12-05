@@ -22,13 +22,16 @@ namespace Midterm2
         public static void PrintMenu(List<Product> menu)
         {
             var number = 1;
-            Console.WriteLine("MENU" + Environment.NewLine);
-
+            Console.WriteLine("MENU");
+            Console.WriteLine("------------------------------------------------------------------------------------------");
+            Console.WriteLine("# | Item  | Description  | Category  |   Price");
+            Console.WriteLine("------------------------------------------------------------------------------------------" + Environment.NewLine);
             foreach (var Product in menu)
             {
-                Console.WriteLine("|{0,3}| {1,10} | {2, 10} | {3,10} | {4,4} |", number, Product.Name, Product.Description, Product.Category, Product.Price);
+                Console.WriteLine("|{0,-3}| {1,-20} | {2, -40} | {3,-10} | {4,3} |", number, Product.Name, Product.Description, Product.Category, Product.Price);
                 number++;
             }
+            Console.WriteLine(Environment.NewLine+ "------------------------------------------------------------------------------------------");
         }
 
         public static List<Menu> BuildCustomerOrder(List<Product> menu)
